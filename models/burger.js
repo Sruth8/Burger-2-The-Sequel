@@ -1,23 +1,16 @@
-// This file will require the ORM. This has the methods used to modify the ORM's
-// that is used with the bugers database.
+module.exports=function(sequelize, DataTypes){
+    var Burger = sequelize.define('Burger', {
+        burger_name: DataTypes.STRING,
+        devoured: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }
+    }, {
+        classMethods: {
+            associate: function(models) {
 
-
-var orm = require("../config/orm.js");
-
-var burger = {
-    all: function(callback){
-        orm.all("burgers", function(res){ //burgers  is for the table input
-            callback(res); //this callback will go into the burgers_controller.js file
-        })
-    },
-    //here is an update to the orm 
-    update: function(id,callback){
-        orm.update("burgers", id,callback);
-    },
-
-    create: function(name, callback){
-        orm.create("burgers", name, callback);
-    }
+            }
+        }
+    });
+    return Burger;
 }
-
-module.exports = burger;
