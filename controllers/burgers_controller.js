@@ -14,9 +14,9 @@ router.get("/", function (req, res) {
 // Trying to set a "find all " to get burger models
 router.get("/burgers", function (req, res) {
   db.Burger.findAll()
-    .then(function (dbBurger) {
-      console.log(dbBurger);
-      var hbsObject = { burger: dbBurger }
+    .then(function (dataBurger) {
+      console.log(dataBurger);
+      var hbsObject = { burger: dataBurger }
       return res.render("index", hbsObject);
     });
 
@@ -24,10 +24,10 @@ router.get("/burgers", function (req, res) {
 
 // ==this routes to the index file
 router.get("/", function (req, res) {
-  db.burger.all(function (dbBurger) { //passing dbBurger into the function
-    console.log(dbBurger);
+  db.burger.all(function (dataBurger) { //passing dataBurger into the function
+    console.log(dataBurger);
     res.render("index",
-      { dbBurger });
+      { dataBurger });
   });
 
 });
@@ -35,8 +35,8 @@ router.get("/", function (req, res) {
 
 //this will post the burger that was created by the user
 router.post("/burgers/create", function (req, res) {
-  db.Burger.create({ burger_name: req.body.burger_name }).then(function (dbBurger) {
-    console.log(dbBurger);
+  db.Burger.create({ burger_name: req.body.burger_name}).then(function (dataBurger) {
+    console.log(dataBurger);
     res.redirect("/");
   });
 
@@ -58,16 +58,16 @@ router.put("/burgers/update", function (req, res) {
     }
 
   )
-    .then(function (dbBurger) {
-      console.log(dbBurger);
+    .then(function (dataBurger) {
+      console.log(dataBurger);
       res.redirect("/");
     });
 });
 
 // router.post("/burgers/update/:id", function(req,res){
 //     console.log(req.params);
-//     db.burger.update(req.params.id, function(dbBurger){
-//         console.log(dbBurger);
+//     db.burger.update(req.params.id, function(dataBurger){
+//         console.log(dataBurger);
 //         res.redirect("/");
 //     });
 // });

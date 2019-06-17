@@ -5,7 +5,8 @@ var bodyParser = require("body-parser");
 //var Sequelize = require("sequelize");
 var methodOverride = require("method-override");
 
-var db = require("./models");
+
+var db = require("./models/");
 var routes = require("./controllers/burgers_controller");
 
 var PORT = process.env.PORT || process.env.DEV_PORT || 8080;
@@ -15,7 +16,7 @@ var app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + "public"));
-app.get("/", (req, res) => res.send("INDEX"));
+//app.get("/", (req, res) => res.send("index"));
 app.use(express.static('public'));
 app.use(routes);
 
