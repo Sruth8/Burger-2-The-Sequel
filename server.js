@@ -51,7 +51,7 @@ app.use("/create", routes);
 
 
 
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log("listenning on http://localhost:" + PORT);
   });

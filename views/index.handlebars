@@ -15,7 +15,7 @@
 
     <div class="col-xs-6 text-center" id="task">
       <div class="row">
-        <h2>Try these first!</h2>
+        <h2>Eat me first!</h2>
         <ul style="list-style-type:none;">
           {{#each burgerInfo}}
           {{#unless this.devoured}}
@@ -25,7 +25,7 @@
           <div class="col-xs-3 text-center">
             <form method="POST" action="/burgers/update/{{this.id}}" class="button-size">
               <input type="hidden" name="burger_id" type="text" value={{this.id}}> <br>
-              <button type="submit" class="btn btn-default">DEVOUR IT!!</button>
+              <button type="submit" class="btn btn-default">eat IT!!</button>
             </form>
           </div>
 

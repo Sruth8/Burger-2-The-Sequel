@@ -15,8 +15,8 @@ router.get("/", function (req, res) {
 router.get("/burgers", function (req, res) {
   db.Burger.findAll()
     .then(function (dataBurger) {
-      console.log(dataBurger);
-      var hbsObject = { burger: dataBurger }
+
+      var hbsObject = { burgerInfo: dataBurger }
       return res.render("index", hbsObject);
     });
 
@@ -35,6 +35,7 @@ router.get("/", function (req, res) {
 
 //this will post the burger that was created by the user
 router.post("/burgers/create", function (req, res) {
+  console.log(req.body);
   db.Burger.create({ burger_name: req.body.burger_name}).then(function (dataBurger) {
     console.log(dataBurger);
     res.redirect("/");
